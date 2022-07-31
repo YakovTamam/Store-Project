@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -18,11 +18,11 @@ const PlaceOrderScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
 
+  // Calculate Prices
   const addDecimal = num => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
 
-  // Calculate Prices
   cart.itemsPrice = addDecimal(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
@@ -41,6 +41,14 @@ const PlaceOrderScreen = () => {
 
   const orderCreate = useSelector(state => state.orderCreate);
   const { order, success, error } = orderCreate;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+    }
+  }, [navigate, success, order]);
 
   const placeOrederHandler = () => {
     dispatch(
@@ -134,6 +142,9 @@ const PlaceOrderScreen = () => {
                 <Col>Total</Col>
                 <Col>${cart.totalPrice}</Col>
               </Row>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {error && <Message variant='danger'>{error}</Message>}
             </ListGroup.Item>
             <Button
               variant='primary'
