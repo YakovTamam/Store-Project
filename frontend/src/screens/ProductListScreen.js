@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
-import { listUser, deleteUser } from "../actions/userActions.js";
+import { listProducts } from "../actions/productAction.js";
 
-const UserListScreen = () => {
+const ProductListScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -89,4 +89,4 @@ const UserListScreen = () => {
   );
 };
 
-export default UserListScreen;
+export default ProductListScreen;
