@@ -24,7 +24,7 @@ const UserListScreen = () => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listUser());
     } else {
-      navigate("/");
+      navigate("/login");
     }
   }, [dispatch, navigate, userInfo, successDelete]);
 
