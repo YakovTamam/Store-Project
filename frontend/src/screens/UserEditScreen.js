@@ -8,7 +8,7 @@ import FormContainer from "../components/FormContainer.js";
 import { getUserDetails, updateUser } from "../actions/userActions.js";
 import { USER_UPDATE_RESET } from "../constants/userConstant.js";
 
-const UserEditScreen = () => {
+const ProductEditScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -101,4 +101,4 @@ const UserEditScreen = () => {
   );
 };
 
-export default UserEditScreen;
+export default ProductEditScreen;
