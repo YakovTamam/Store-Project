@@ -9,7 +9,7 @@ import path from "path";
 import productRoutes from "./routes/productsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
-import uploadRoutes from "./routes/uploadRoutes.js";
+import uploadsRoutes from "./routes/uploadsRoutes.js";
 
 // configure dotenv
 dotenv.config();
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
-app.use("/api/upload", uploadRoutes);
+app.use("/api/uploads", uploadsRoutes);
 
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);

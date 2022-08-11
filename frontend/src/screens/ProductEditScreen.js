@@ -6,6 +6,7 @@ import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
 import FormContainer from "../components/FormContainer.js";
 import { listProductDetails, updateProduct } from "../actions/productAction.js";
+import axios from "axios";
 
 const UserEditScreen = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const UserEditScreen = () => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -66,6 +68,29 @@ const UserEditScreen = () => {
     );
   };
 
+  const uploadFileHandler = async e => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      console.log("formData", formData);
+      const { data } = await axios.post("/api/uploads", formData, config);
+
+      setImage(data);
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
+  };
+
   return (
     <>
       <Link to='/admin/productlist' className='btn btn-light my-3'>
@@ -106,6 +131,14 @@ const UserEditScreen = () => {
                 placeholder='Enter Image URL'
                 value={image}
                 onChange={e => setImage(e.target.value)}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='image-file'>
+              <Form.Control
+                label='Choose File'
+                type='file'
+                custom='true'
+                onChange={uploadFileHandler}></Form.Control>
+              {uploading && <Loader />}
             </Form.Group>
 
             <Form.Group controlId='brand'>
