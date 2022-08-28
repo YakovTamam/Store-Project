@@ -83,7 +83,7 @@ const OrderScreen = () => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, id, order, successPay, successDeliver]);
+  }, [dispatch, id, order, successPay, successDeliver, navigate, userInfo]);
 
   const successPaymentHandler = paymentResult => {
     dispatch(payOrder(id, paymentResult));
@@ -96,13 +96,13 @@ const OrderScreen = () => {
   return loading ? (
     <Loader />
   ) : error ? (
-    <Message variant="danger">{error}</Message>
+    <Message variant='danger'>{error}</Message>
   ) : (
     <>
       <h1>Order {order._id}</h1>
       <Row>
         <Col md={8}>
-          <ListGroup variant="flush">
+          <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
@@ -119,11 +119,11 @@ const OrderScreen = () => {
                 {order.shippingAddress.postalCode}.
               </p>
               {order.isDelivered ? (
-                <Message variant="success">
+                <Message variant='success'>
                   Delivered on {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="danger">Not Delivered!</Message>
+                <Message variant='danger'>Not Delivered!</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
@@ -133,9 +133,9 @@ const OrderScreen = () => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}</Message>
+                <Message variant='success'>Paid on {order.paidAt}</Message>
               ) : (
-                <Message variant="danger">Not Paid!</Message>
+                <Message variant='danger'>Not Paid!</Message>
               )}
             </ListGroup.Item>
 
@@ -171,7 +171,7 @@ const OrderScreen = () => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant="flush">
+            <ListGroup variant='flush'>
               <h2>Order Summary</h2>
             </ListGroup>
             <ListGroup.Item>
@@ -219,10 +219,9 @@ const OrderScreen = () => {
               !order.isDelivered && (
                 <ListGroup.Item>
                   <Button
-                    type="button"
-                    className="btn btn-block"
-                    onClick={deliverHandler}
-                  >
+                    type='button'
+                    className='btn btn-block'
+                    onClick={deliverHandler}>
                     Mark As Delivered!
                   </Button>
                 </ListGroup.Item>

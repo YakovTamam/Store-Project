@@ -53,7 +53,6 @@ const ProfileScreen = () => {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
   };
-  console.log("orders", orders);
 
   return (
     <Row>

@@ -29,7 +29,6 @@ const ProductEditScreen = () => {
   } = userUpdate;
 
   useEffect(() => {
-    console.log(isAdmin);
     if (successUpdate) {
       dispatch({ type: USER_UPDATE_RESET });
       navigate("/admin/userlist");

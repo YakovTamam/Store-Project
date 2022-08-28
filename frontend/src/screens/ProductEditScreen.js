@@ -80,7 +80,7 @@ const UserEditScreen = () => {
           "Content-Type": "multipart/form-data",
         },
       };
-      console.log("formData", formData);
+
       const { data } = await axios.post("/api/uploads", formData, config);
 
       setImage(data);
