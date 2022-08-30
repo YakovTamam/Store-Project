@@ -4,6 +4,7 @@ import colors from "colors";
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import path from "path";
+import morgan from "morgan";
 
 // import routes
 import productRoutes from "./routes/productsRoutes.js";
@@ -13,11 +14,16 @@ import uploadsRoutes from "./routes/uploadsRoutes.js";
 
 // configure dotenv
 dotenv.config();
+
 // connect to database
 connectDB();
 
 // init express app
 const app = express();
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 app.use(express.json());
 
@@ -31,6 +37,7 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
+// TODO: Post image to the DataBase
 // static folder
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
