@@ -5,9 +5,11 @@ import { GiCutDiamond } from "react-icons/gi";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
