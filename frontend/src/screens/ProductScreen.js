@@ -18,6 +18,7 @@ import {
   createProductReview,
 } from "../actions/productAction.js";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants.js";
+import Meta from "../components/Meta.js";
 
 const ProductScreen = () => {
   const dispatch = useDispatch();
@@ -72,6 +73,11 @@ const ProductScreen = () => {
         <Message varient='danger'>{error}</Message>
       ) : (
         <>
+          <Meta
+            title={product.name}
+            description={product.description}
+            keywords={product.name}
+          />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />

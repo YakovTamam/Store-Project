@@ -42,6 +42,10 @@ function App() {
               <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
               <Route path='/admin/orderslist' element={<OrderListScreen />} />
               <Route
+                path='/admin/productlist/:pageNumber'
+                element={<ProductListScreen />}
+              />
+              <Route
                 path='/admin/productlist'
                 element={<ProductListScreen />}
               />
@@ -52,7 +56,13 @@ function App() {
               <Route path='/cart/' element={<CartScreen />}>
                 <Route path='/cart/:id' element={<CartScreen />} />
               </Route>
-              <Route path='/search/:keyword' element={<HomeScreen />} />
+              <Route path='/search/:keyword' element={<HomeScreen />}>
+                <Route
+                  path='/search/:keyword/page/:pageNumber'
+                  element={<HomeScreen />}
+                />
+              </Route>
+              <Route path='/page/:pageNumber' element={<HomeScreen />} />
               <Route path='/' element={<HomeScreen />} />
             </Routes>
           </Container>
