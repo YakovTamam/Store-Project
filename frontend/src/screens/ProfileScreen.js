@@ -7,6 +7,7 @@ import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
 import { getUserDetails, updateUserProfile } from "../actions/userActions.js";
 import { listMyOrders } from "../actions/orderActions.js";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstant.js";
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ const ProfileScreen = () => {
     if (!userInfo) {
       navigate("/login");
     } else {
-      if (!user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
       } else {
         setName(user.name);
@@ -42,7 +44,7 @@ const ProfileScreen = () => {
       }
       dispatch(listMyOrders());
     }
-  }, [navigate, userInfo, dispatch, user]);
+  }, [navigate, userInfo, dispatch, user, success]);
 
   const submitHandler = e => {
     e.preventDefault();
@@ -111,7 +113,7 @@ const ProfileScreen = () => {
         ) : errorOrders ? (
           <Message variant='danger'>{errorOrders}</Message>
         ) : (
-          <Table striped hover responsive className='table-sm'>
+          <Table responsive striped hover>
             <thead>
               <tr>
                 <th>ID</th>
@@ -136,7 +138,7 @@ const ProfileScreen = () => {
                     )}
                   </td>
                   <td>
-                    {order.isDelivered ? (
+                    {order.deliverdAt ? (
                       order.deliverdAt.substring(0, 10)
                     ) : (
                       <i className='fas fa-times' style={{ color: "red" }}></i>
