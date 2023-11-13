@@ -19,51 +19,53 @@ import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+import AboveHeader from "./components/AboveHeader";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
+        <AboveHeader />
         <Header />
         <main>
           <Container>
             <Routes>
-              <Route path='/order' element={<OrderScreen />}>
-                <Route path='/order/:id' element={<OrderScreen />} />
+              <Route path="/order" element={<OrderScreen />}>
+                <Route path="/order/:id" element={<OrderScreen />} />
               </Route>
-              <Route path='/login' element={<LoginScreen />} />
-              <Route path='/shipping' element={<ShippingScreen />} />
-              <Route path='/placeorder' element={<PlaceOrderScreen />} />
-              <Route path='/payment' element={<PaymentScreen />} />
-              <Route path='/register' element={<RegisterScreen />} />
-              <Route path='/product/:id' element={<ProductScreen />} />
-              <Route path='/profile' element={<ProfileScreen />} />
-              <Route path='/admin/userlist' element={<UserListScreen />} />
-              <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
-              <Route path='/admin/orderslist' element={<OrderListScreen />} />
+              <Route path="/login" element={<LoginScreen />} />
+              <Route path="/shipping" element={<ShippingScreen />} />
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/payment" element={<PaymentScreen />} />
+              <Route path="/register" element={<RegisterScreen />} />
+              <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/admin/userlist" element={<UserListScreen />} />
+              <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+              <Route path="/admin/orderslist" element={<OrderListScreen />} />
               <Route
-                path='/admin/productlist/:pageNumber'
+                path="/admin/productlist/:pageNumber"
                 element={<ProductListScreen />}
               />
               <Route
-                path='/admin/productlist'
+                path="/admin/productlist"
                 element={<ProductListScreen />}
               />
               <Route
-                path='/admin/product/:id/edit'
+                path="/admin/product/:id/edit"
                 element={<ProductEditScreen />}
               />
-              <Route path='/cart/' element={<CartScreen />}>
-                <Route path='/cart/:id' element={<CartScreen />} />
+              <Route path="/cart/" element={<CartScreen />}>
+                <Route path="/cart/:id" element={<CartScreen />} />
               </Route>
-              <Route path='/search/:keyword' element={<HomeScreen />}>
+              <Route path="/search/:keyword" element={<HomeScreen />}>
                 <Route
-                  path='/search/:keyword/page/:pageNumber'
+                  path="/search/:keyword/page/:pageNumber"
                   element={<HomeScreen />}
                 />
               </Route>
-              <Route path='/page/:pageNumber' element={<HomeScreen />} />
-              <Route path='/' element={<HomeScreen />} />
+              <Route path="/page/:pageNumber" element={<HomeScreen />} />
+              <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
         </main>
