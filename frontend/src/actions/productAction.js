@@ -25,7 +25,7 @@ import {
 
 export const listProducts =
   (keyword = "", pageNumber = "") =>
-  async dispatch => {
+  async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
       const { data } = await axios.get(
@@ -43,7 +43,7 @@ export const listProducts =
     }
   };
 
-export const listProductDetails = id => async dispatch => {
+export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
     const { data } = await axios.get(`/api/products/${id}`);
@@ -59,7 +59,7 @@ export const listProductDetails = id => async dispatch => {
   }
 };
 
-export const deleteProduct = id => async (dispatch, getState) => {
+export const deleteProduct = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_DELETE_REQUEST });
 
@@ -115,7 +115,7 @@ export const createProduct = () => async (dispatch, getState) => {
   }
 };
 
-export const updateProduct = product => async (dispatch, getState) => {
+export const updateProduct = (product) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_UPDATE_REQUEST });
 
@@ -178,7 +178,7 @@ export const createProductReview =
     }
   };
 
-export const listTopProducts = () => async dispatch => {
+export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP_REQUEST });
     const { data } = await axios.get(`/api/products/top`);
