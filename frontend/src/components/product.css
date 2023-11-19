@@ -23,6 +23,11 @@
 
 .product-quantity {
   display: flex;
+  height: 30px;
+  width: 75px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  align-items: center;
 }
 
 .product-button {
