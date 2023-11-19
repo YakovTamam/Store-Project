@@ -18,11 +18,11 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark' style={{position:"sticky", top: "0", zIndex:"10"}} >
+    <header style={{position:"sticky", top: "0", zIndex:"10"}}>
+      <Navbar collapseOnSelect expand='lg' bg='primary' variant='primary'  >
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>
+            <Navbar.Brand style={{fontSize:"20px"}}>
             Professional <MdCleanHands /> Clean
             </Navbar.Brand>
           </LinkContainer>

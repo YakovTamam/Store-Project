@@ -37,7 +37,7 @@ const HomeScreen = () => {
           חזור
         </Link>
       )}
-      <h2 className='mt-4'>המוצרים החמים</h2>
+      <h2 className='mt-4' style={{textAlign: "center"}}>המוצרים החמים</h2>
       {loading ? (
         <Loader />
       ) : error ? (
