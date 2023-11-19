@@ -59,7 +59,7 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={4}>
-        <h2>User Profile</h2>
+        <h2>פרופיל משתמש</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {success && <Message variant='success'>Profile Updated!</Message>}
@@ -75,7 +75,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId='email'>
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>כתובת דוא"ל</Form.Label>
             <Form.Control
               type='email'
               placeholder='Enter Email'
@@ -84,7 +84,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
+            <Form.Label>סיסמה</Form.Label>
             <Form.Control
               type='password'
               placeholder='Enter Password'
@@ -93,7 +93,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId='confirmPassword'>
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>אישור סיסמה</Form.Label>
             <Form.Control
               type='password'
               placeholder='Confirm Password'
@@ -102,12 +102,12 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Button type='submit' variant='primary'>
-            Update
+            עדכן
           </Button>
         </Form>
       </Col>
       <Col md={8}>
-        <h2>My Orders</h2>
+        <h2>ההזמנות שלי</h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
@@ -147,7 +147,7 @@ const ProfileScreen = () => {
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
                       <Button className='btn-sm' variant='light'>
-                        Details
+                        פרטים
                       </Button>
                     </LinkContainer>
                   </td>

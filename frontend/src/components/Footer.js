@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { GiDiamondTrophy } from "react-icons/gi";
+import { MdCleanHands } from "react-icons/gi";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <Row>
           <Col className='text-center py-3'>
             <strong>
-              Copyright &copy; Asser <GiDiamondTrophy /> Store
+              Copyright &copy; Professional <MdCleanHands /> Clean
             </strong>
           </Col>
         </Row>

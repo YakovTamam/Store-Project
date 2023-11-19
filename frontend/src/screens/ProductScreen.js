@@ -65,7 +65,7 @@ const ProductScreen = () => {
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
-        Go Back
+        חזור
       </Link>
       {loading ? (
         <Loader />
@@ -95,7 +95,7 @@ const ProductScreen = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  תיאור: {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -104,7 +104,7 @@ const ProductScreen = () => {
                 <ListGroup variant='flush'>
                   <ListGroup.Item>
                     <Row>
-                      <Col>Price:</Col>
+                      <Col>מחיר:</Col>
                       <Col>
                         <strong>${product.price}</strong>
                       </Col>
@@ -112,7 +112,7 @@ const ProductScreen = () => {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <Row>
-                      <Col>Status:</Col>
+                      <Col>סטאטוס:</Col>
                       <Col>
                         {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
                       </Col>
@@ -122,7 +122,7 @@ const ProductScreen = () => {
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
-                        <Col> Qty</Col>
+                        <Col>כמות</Col>
                         <Col>
                           <Form.Control
                             as='select'
@@ -143,7 +143,7 @@ const ProductScreen = () => {
                     className='btn mx-3 my-2'
                     type='button'
                     disabled={product.countInStock === 0}>
-                    Add To Cart
+                    הוסף לעגלה
                   </Button>
                 </ListGroup>
               </Card>
@@ -151,8 +151,8 @@ const ProductScreen = () => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Review</h2>
-              {product.reviews.length === 0 && <Message>No Reviews</Message>}
+              <h2>ביקורות</h2>
+              {product.reviews.length === 0 && <Message>אין ביקורות</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.map(review => (
                   <ListGroup.Item key={review._id}>
@@ -163,27 +163,27 @@ const ProductScreen = () => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Review</h2>
+                  <h2>כתוב ביקורת</h2>
                   {errorProductReview && (
                     <Message variant='danger'> {errorProductReview} </Message>
                   )}
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
                       <Form.Group controlId='rating'>
-                        <Form.Label>Rating</Form.Label>
+                        <Form.Label>דירוג</Form.Label>
                         <Form.Control
                           as='select'
                           value={rating}
                           onChange={e => setRating(e.target.value)}>
-                          <option value=''>Select...</option>
-                          <option value='1'>1 - Poor</option>
-                          <option value='2'>2 - Fair</option>
-                          <option value='3'>3 - Good</option>
-                          <option value='4'>4 - Very Good</option>
-                          <option value='5'>5 - Excellent</option>
+                          <option value=''>בחר...</option>
+                          <option value='1'>1 - לא טוב</option>
+                          <option value='2'>2 - הוגן</option>
+                          <option value='3'>3 - טוב</option>
+                          <option value='4'>4 - טוב מאוד</option>
+                          <option value='5'>5 - מצויין</option>
                         </Form.Control>
                         <Form.Group controlId='comment'>
-                          <Form.Label>Comment</Form.Label>
+                          <Form.Label>תגובה</Form.Label>
                           <Form.Control
                             as='textarea'
                             row='3'
@@ -194,12 +194,12 @@ const ProductScreen = () => {
                         </Form.Group>
                       </Form.Group>
                       <Button type='submit' variant='primary'>
-                        Submit
+                        אישור
                       </Button>
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to='/login'>sign-in</Link>to write a review
+                      בבקשה <Link to='/login'>התחבר</Link>בשביל לכתוב תגובה
                     </Message>
                   )}
                 </ListGroup.Item>
