@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { MdCleanHands } from "react-icons/gi";
+import { MdCleanHands } from "react-icons/md";
 
 const Footer = () => {
   return (
