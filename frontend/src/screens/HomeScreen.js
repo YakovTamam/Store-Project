@@ -34,10 +34,10 @@ const HomeScreen = () => {
         <ProductsCarousel />
       ) : (
         <Link to='/' className='btn btn-outline-dark'>
-          Go Back
+          חזור
         </Link>
       )}
-      <h2 className='mt-4'>Latest Products</h2>
+      <h2 className='mt-4'>המוצרים החמים</h2>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -46,7 +46,7 @@ const HomeScreen = () => {
         <>
           <Row>
             {products.map(product => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+              <Col key={product._id} sm={6} md={6} lg={4} xl={3}>
                 <Product product={product} />
               </Col>
             ))}
