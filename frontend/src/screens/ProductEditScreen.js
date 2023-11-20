@@ -23,10 +23,10 @@ const UserEditScreen = () => {
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
 
-  const productDetails = useSelector(state => state.productDetails);
+  const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  const productUpdate = useSelector(state => state.productUpdate);
+  const productUpdate = useSelector((state) => state.productUpdate);
   const {
     loading: loadingUpadate,
     error: errorUpdate,
@@ -38,7 +38,9 @@ const UserEditScreen = () => {
       dispatch({ type: "PRODUCT_UPDATE_RESET" });
       navigate("/admin/productlist");
     } else {
-      if (!product.name || product._id !== id) {
+      console.log(successUpdate);
+      console.log(product);
+      if (!product) {
         dispatch(listProductDetails(id));
       } else {
         setName(product.name);
@@ -52,7 +54,7 @@ const UserEditScreen = () => {
     }
   }, [product, id, dispatch, navigate, successUpdate]);
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
       updateProduct({
@@ -68,7 +70,7 @@ const UserEditScreen = () => {
     );
   };
 
-  const uploadFileHandler = async e => {
+  const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
@@ -93,92 +95,90 @@ const UserEditScreen = () => {
 
   return (
     <>
-      <Link to='/admin/productlist' className='btn btn-light my-3'>
-        Go Back
+      <Link to="/admin/productlist" className="btn btn-light my-3">
+        חזור
       </Link>
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1>ערוך מוצר</h1>
         {loadingUpadate && <Loader />}
-        {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
           <Loader />
         ) : error ? (
-          <Message variant='danger'>{error}</Message>
+          <Message variant="danger">{error}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId='Name'>
-              <Form.Label>Name</Form.Label>
+            <Form.Group controlId="Name">
+              <Form.Label>שם מוצר</Form.Label>
               <Form.Control
-                type='name'
-                placeholder='Enter Name'
+                type="name"
+                placeholder="הזן שם"
                 value={name}
-                onChange={e => setName(e.target.value)}></Form.Control>
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='price'>
-              <Form.Label>Price</Form.Label>
+            <Form.Group controlId="price">
+              <Form.Label>מחיר</Form.Label>
               <Form.Control
-                type='number'
-                placeholder='Enter Price'
+                type="number"
+                placeholder="הזן מחיר"
                 value={price}
-                onChange={e => setPrice(e.target.value)}></Form.Control>
+                onChange={(e) => setPrice(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='image'>
-              <Form.Label>Image</Form.Label>
+            <Form.Group controlId="image">
+              <Form.Label>תמונות</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter Image URL'
+                type="text"
+                placeholder="Enter Image URL"
                 value={image}
-                onChange={e => setImage(e.target.value)}></Form.Control>
+                onChange={(e) => setImage(e.target.value)}
+              ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='image-file'>
+            <Form.Group controlId="image-file">
               <Form.Control
-                label='Choose File'
-                type='file'
-                custom='true'
-                onChange={uploadFileHandler}></Form.Control>
+                label="Choose File"
+                type="file"
+                custom="true"
+                onChange={uploadFileHandler}
+              ></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
 
-            <Form.Group controlId='brand'>
-              <Form.Label>Brand</Form.Label>
+            <Form.Group controlId="CountInStock">
+              <Form.Label>כמות</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter Brand'
-                value={brand}
-                onChange={e => setBrand(e.target.value)}></Form.Control>
-            </Form.Group>
-
-            <Form.Group controlId='CountInStock'>
-              <Form.Label>Count In Stock</Form.Label>
-              <Form.Control
-                type='number'
-                placeholder='Enter Count In Stock'
+                type="number"
+                placeholder="הזן כמות מוצר"
                 value={countInStock}
-                onChange={e => setCountInStock(e.target.value)}></Form.Control>
+                onChange={(e) => setCountInStock(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='category'>
-              <Form.Label>Category</Form.Label>
+            <Form.Group controlId="category">
+              <Form.Label>קטגוריה</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter Category'
+                type="text"
+                placeholder="הזן קטגוריה"
                 value={category}
-                onChange={e => setCategory(e.target.value)}></Form.Control>
+                onChange={(e) => setCategory(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='description'>
-              <Form.Label>Description</Form.Label>
+            <Form.Group controlId="description">
+              <Form.Label>תיאור</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter Description'
+                type="text"
+                placeholder="הזן תיאור"
                 value={description}
-                onChange={e => setDescription(e.target.value)}></Form.Control>
+                onChange={(e) => setDescription(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
-              Update
+            <Button type="submit" variant="primary">
+              עדכן
             </Button>
           </Form>
         )}

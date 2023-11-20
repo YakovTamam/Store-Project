@@ -56,10 +56,10 @@ const HomeScreen = () => {
               flexWrap: "wrap",
             }}
           >
-            <NewProduct />
-            <NewProduct />
-            <NewProduct />
-            <NewProduct />
+            <NewProduct img="https://hulkcleaner.com/cdn/shop/products/anti-rust-1l.webp?v=1677175044&width=360" />
+            <NewProduct img="https://hulkcleaner.com/cdn/shop/products/Anti-Rust-Gel.webp?v=1677755072&width=360" />
+            <NewProduct img="	https://hulkcleaner.com/cdn/shop/files/BLOCK-D70ECO.webp?v=1693057035&width=360" />
+            <NewProduct img="https://hulkcleaner.com/cdn/shop/files/Screenshot_4.webp?v=1693133683&width=360" />
             <NewProduct />
           </div>
           {/* <Row>

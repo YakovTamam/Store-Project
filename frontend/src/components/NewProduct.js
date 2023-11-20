@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./product.css";
-const img = "http://localhost:5000/uploads/clean.png";
+const img =
+  "	https://www.jacobi.co.il/wp-content/uploads/2022/07/31421-2.png.webp";
 
-export default function NewProduct(product) {
+export default function NewProduct(props) {
   const [quantity, setQuantity] = useState(0);
 
   return (
     <button className="product-card">
-      <img className="product-img" src={img} />
+      <img className="product-img" src={props.img || img} />
       <span className="product-p">₪3.86 / 100 מ"ל</span>
       <span className="product-price">₪17.90</span>
       <div className="product-quantity">

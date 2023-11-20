@@ -36,11 +36,14 @@ const Header = () => {
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
-                  <LinkContainer to="/profile">
+                <NavDropdown title={userInfo.name + " "} id="username">
+                  <LinkContainer style={{ textAlign: "right" }} to="/profile">
                     <NavDropdown.Item>פרופיל</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
+                  <NavDropdown.Item
+                    style={{ textAlign: "right" }}
+                    onClick={logoutHandler}
+                  >
                     התנתק
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -52,14 +55,23 @@ const Header = () => {
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="admin" id="adminmenu">
-                  <LinkContainer to="/admin/userlist">
+                <NavDropdown drop="down" title="מנהל " id="adminmenu">
+                  <LinkContainer
+                    style={{ textAlign: "right" }}
+                    to="/admin/userlist"
+                  >
                     <NavDropdown.Item>משתמשים</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/admin/productlist">
+                  <LinkContainer
+                    style={{ textAlign: "right" }}
+                    to="/admin/productlist"
+                  >
                     <NavDropdown.Item>מוצרים</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/admin/orderslist">
+                  <LinkContainer
+                    style={{ textAlign: "right" }}
+                    to="/admin/orderslist"
+                  >
                     <NavDropdown.Item>הזמנות</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
