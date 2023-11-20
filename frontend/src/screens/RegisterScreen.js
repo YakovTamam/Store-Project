@@ -19,7 +19,7 @@ const RegisterScreen = () => {
 
   const dispatch = useDispatch();
 
-  const userRegister = useSelector(state => state.userRegister);
+  const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
@@ -30,7 +30,7 @@ const RegisterScreen = () => {
     }
   }, [navigate, userInfo, redirect]);
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
@@ -42,56 +42,60 @@ const RegisterScreen = () => {
 
   return (
     <FormContainer>
-      <h1>Register</h1>
-      {message && <Message variant='danger'>{message}</Message>}
-      {error && <Message variant='danger'>{error}</Message>}
+      <h1>דף הרשמה</h1>
+      {message && <Message variant="danger">{message}</Message>}
+      {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId='Name'>
-          <Form.Label>Name</Form.Label>
+        <Form.Group className="mb-2" controlId="Name">
+          <Form.Label>שם</Form.Label>
           <Form.Control
-            type='name'
-            placeholder='Enter Name'
+            type="name"
+            placeholder="הזן שם"
             value={name}
-            onChange={e => setName(e.target.value)}></Form.Control>
+            onChange={(e) => setName(e.target.value)}
+          ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>אימל</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Enter Email'
+            type="email"
+            placeholder="הזן כאן"
             value={email}
-            onChange={e => setEmail(e.target.value)}></Form.Control>
+            onChange={(e) => setEmail(e.target.value)}
+          ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>סיסמה</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Enter Password'
+            type="password"
+            placeholder="Enter Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}></Form.Control>
+            onChange={(e) => setPassword(e.target.value)}
+          ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
+        <Form.Group className="mb-2" controlId="confirmPassword">
+          <Form.Label>אישור סיסמה</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Confirm Password'
+            type="password"
+            placeholder="הזן שוב את הסיסמה"
             value={confirmPassword}
-            onChange={e => setConfirmPassword(e.target.value)}></Form.Control>
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          ></Form.Control>
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
-          Register
+        <Button type="submit" variant="primary" className="mt-4">
+          הירשם
         </Button>
       </Form>
-      <Row className='py-3'>
+      <Row className="py-4">
         <Col>
-          Have an Account?{" "}
+          יש לך כבר משתמש?{" "}
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            Login
+            לחץ להתחברות
           </Link>
         </Col>
       </Row>

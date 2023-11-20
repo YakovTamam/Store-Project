@@ -9,7 +9,7 @@ export default function NewProduct(product) {
     <button className="product-card">
       <img className="product-img" src={img} />
       <span className="product-p">₪3.86 / 100 מ"ל</span>
-      <span>₪17.90</span>
+      <span className="product-price">₪17.90</span>
       <div className="product-quantity">
         <button
           className="product-button"

@@ -16,7 +16,7 @@ const LoginScreen = () => {
 
   const dispatch = useDispatch();
 
-  const userLogin = useSelector(state => state.userLogin);
+  const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
@@ -27,43 +27,45 @@ const LoginScreen = () => {
     }
   }, [navigate, userInfo, redirect]);
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
   };
 
   return (
     <FormContainer>
-      <h1>Sign In</h1>
-      {error && <Message variant='danger'>{error}</Message>}
+      <h1>הרשמה</h1>
+      {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>דוא"ל</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Enter Email'
+            type="email"
+            placeholder="Enter Email"
             value={email}
-            onChange={e => setEmail(e.target.value)}></Form.Control>
+            onChange={(e) => setEmail(e.target.value)}
+          ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>סיסמה</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Enter Password'
+            type="password"
+            placeholder="הזן סיסמה"
             value={password}
-            onChange={e => setPassword(e.target.value)}></Form.Control>
+            onChange={(e) => setPassword(e.target.value)}
+          ></Form.Control>
         </Form.Group>
-        <Button type='submit' variant='primary'>
-          Sign In
+        <Button className="mt-3" type="submit" variant="primary">
+          התחבר
         </Button>
       </Form>
-      <Row className='py-3'>
+      <Row className="py-5">
         <Col>
-          New Costumer?{" "}
+          לקוח חדש?{" "}
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Register
+            להרשמה לחץ כאן
           </Link>
         </Col>
       </Row>

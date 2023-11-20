@@ -11,6 +11,7 @@ import { listProducts } from "../actions/productAction.js";
 import ProductsCarousel from "../components/ProductsCarousel.js";
 import { Link } from "react-router-dom";
 import NewProduct from "../components/NewProduct.js";
+import NewCarousel from "../components/NewCarousel.js";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const HomeScreen = () => {
         keywords="electronics, buy electronics, cheap electronics"
       />
       {!keyword ? (
-        <ProductsCarousel />
+        <NewCarousel />
       ) : (
         <Link to="/" className="btn btn-outline-dark">
           חזור
