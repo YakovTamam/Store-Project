@@ -2,13 +2,9 @@ import React, { useEffect } from "react";
 import Meta from "../components/Meta.js";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col } from "react-bootstrap";
-import Product from "../components/Product.js";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
-import Paginate from "../components/Paginate.js";
 import { listProducts } from "../actions/productAction.js";
-import ProductsCarousel from "../components/ProductsCarousel.js";
 import { Link } from "react-router-dom";
 import NewProduct from "../components/NewProduct.js";
 import NewCarousel from "../components/NewCarousel.js";
@@ -58,8 +54,6 @@ const HomeScreen = () => {
           >
             <NewProduct img="https://hulkcleaner.com/cdn/shop/products/anti-rust-1l.webp?v=1677175044&width=360" />
             <NewProduct img="https://hulkcleaner.com/cdn/shop/products/Anti-Rust-Gel.webp?v=1677755072&width=360" />
-            <NewProduct img="	https://hulkcleaner.com/cdn/shop/files/BLOCK-D70ECO.webp?v=1693057035&width=360" />
-            <NewProduct img="https://hulkcleaner.com/cdn/shop/files/Screenshot_4.webp?v=1693133683&width=360" />
             <NewProduct />
           </div>
           {/* <Row>

@@ -19,16 +19,16 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
 
-  const userDetails = useSelector(state => state.userDetails);
+  const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
-  const userLogin = useSelector(state => state.userLogin);
+  const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const userUpdateProfile = useSelector(state => state.userUpdateProfile);
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
-  const orderListMy = useSelector(state => state.orderListMy);
+  const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ProfileScreen = () => {
     }
   }, [navigate, userInfo, dispatch, user, success]);
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
@@ -59,49 +59,53 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={4}>
-        <h2>פרופיל משתמש</h2>
-        {message && <Message variant='danger'>{message}</Message>}
-        {error && <Message variant='danger'>{error}</Message>}
-        {success && <Message variant='success'>Profile Updated!</Message>}
+        <h2>פרופיל שלי</h2>
+        {message && <Message variant="danger">{message}</Message>}
+        {error && <Message variant="danger">{error}</Message>}
+        {success && <Message variant="success">הפרופיל עודכן!</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-          <Form.Group controlId='Name'>
-            <Form.Label>Name</Form.Label>
+          <Form.Group controlId="Name">
+            <Form.Label>שם</Form.Label>
             <Form.Control
-              type='name'
-              placeholder='Enter Name'
+              type="name"
+              placeholder="Enter Name"
               value={name}
-              onChange={e => setName(e.target.value)}></Form.Control>
+              onChange={(e) => setName(e.target.value)}
+            ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='email'>
+          <Form.Group controlId="email">
             <Form.Label>כתובת דוא"ל</Form.Label>
             <Form.Control
-              type='email'
-              placeholder='Enter Email'
+              type="email"
+              placeholder="Enter Email"
               value={email}
-              onChange={e => setEmail(e.target.value)}></Form.Control>
+              onChange={(e) => setEmail(e.target.value)}
+            ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='password'>
+          <Form.Group controlId="password">
             <Form.Label>סיסמה</Form.Label>
             <Form.Control
-              type='password'
-              placeholder='Enter Password'
+              type="password"
+              placeholder="Enter Password"
               value={password}
-              onChange={e => setPassword(e.target.value)}></Form.Control>
+              onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='confirmPassword'>
-            <Form.Label>אישור סיסמה</Form.Label>
+          <Form.Group controlId="confirmPassword">
+            <Form.Label>אימות סיסמה</Form.Label>
             <Form.Control
-              type='password'
-              placeholder='Confirm Password'
+              type="password"
+              placeholder="אימות סיסמה"
               value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}></Form.Control>
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></Form.Control>
           </Form.Group>
 
-          <Button type='submit' variant='primary'>
+          <Button className="my-3" type="submit" variant="primary">
             עדכן
           </Button>
         </Form>
@@ -111,7 +115,7 @@ const ProfileScreen = () => {
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
-          <Message variant='danger'>{errorOrders}</Message>
+          <Message variant="danger">{errorOrders}</Message>
         ) : (
           <Table responsive striped hover>
             <thead>
@@ -125,7 +129,7 @@ const ProfileScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map(order => (
+              {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt}</td>
@@ -134,19 +138,19 @@ const ProfileScreen = () => {
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
                     ) : (
-                      <i className='fas fa-times' style={{ color: "red" }}></i>
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
                     )}
                   </td>
                   <td>
                     {order.deliverdAt ? (
                       order.deliverdAt.substring(0, 10)
                     ) : (
-                      <i className='fas fa-times' style={{ color: "red" }}></i>
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
                     )}
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button className='btn-sm' variant='light'>
+                      <Button className="btn-sm" variant="light">
                         פרטים
                       </Button>
                     </LinkContainer>

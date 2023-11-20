@@ -94,7 +94,6 @@ const ProductListScreen = () => {
           <Table striped bordered hover responsive className="table-sm">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>שם</th>
                 <th>מחיר</th>
                 <th>קטגוריה</th>
@@ -104,9 +103,8 @@ const ProductListScreen = () => {
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td>{product._id}</td>
                   <td>{product.name}</td>
-                  <td>$₪{product.price}</td>
+                  <td>₪{product.price}</td>
                   <td>{product.category}</td>
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>

@@ -7,7 +7,7 @@ import { savePaymentMethod } from "../actions/cartAction.js";
 import CheckoutSteps from "../components/CheckoutSteps.js";
 
 const PaymentScreen = () => {
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const PaymentScreen = () => {
 
   const dispatch = useDispatch();
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
     navigate("/placeorder");
@@ -33,16 +33,17 @@ const PaymentScreen = () => {
         <h1>Payment Method</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group>
-            <Form.Label as='label'>Payment Method</Form.Label>
+            <Form.Label as="label">Payment Method</Form.Label>
             <Col>
               <Form.Check
-                type='radio'
-                label='PayPal or Credit Card'
-                id='PayPal'
-                name='paymentMethod'
-                value='PayPal'
+                type="radio"
+                label="PayPal or Credit Card"
+                id="PayPal"
+                name="paymentMethod"
+                value="PayPal"
                 checked
-                onChange={e => setPaymentMethod(e.target.value)}></Form.Check>
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              ></Form.Check>
               {/* <Form.Check
               type='radio'
               label='Stripe'
@@ -54,8 +55,8 @@ const PaymentScreen = () => {
             </Col>
           </Form.Group>
 
-          <Button variant='primary' type='submit'>
-            Continue
+          <Button variant="primary" type="submit">
+            המשך
           </Button>
         </Form>
       </FormContainer>

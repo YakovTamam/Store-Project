@@ -20,10 +20,10 @@ const CartScreen = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const removeFromCartHandler = id => {
+  const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
@@ -41,16 +41,16 @@ const CartScreen = () => {
 
   return (
     <Row>
-      <Meta title='Cart' />
+      <Meta title="Cart" />
       <Col md={8}>
-        <h1>Shopping Cart</h1>
+        <h1>סל קניות</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Your cart is empty. <Link to='/'>Continue Shopping</Link>
+            הסל שלך ריק. <Link to="/">לחזרה לחנות</Link>
           </Message>
         ) : (
-          <ListGroup variant='flush'>
-            {cartItems.map(item => (
+          <ListGroup variant="flush">
+            {cartItems.map((item) => (
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col md={2}>
@@ -62,14 +62,15 @@ const CartScreen = () => {
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>
                     <Form.Control
-                      as='select'
+                      as="select"
                       value={item.qty}
-                      onChange={e =>
+                      onChange={(e) =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
-                      }>
-                      {[...Array(item.countInStock).keys()].map(x => (
+                      }
+                    >
+                      {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
@@ -78,10 +79,11 @@ const CartScreen = () => {
                   </Col>
                   <Col md={2}>
                     <Button
-                      type='button'
-                      varient='light'
-                      onClick={() => removeFromCartHandler(item.product)}>
-                      <i className='fas fa-trash'></i>
+                      type="button"
+                      varient="light"
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      <i className="fas fa-trash"></i>
                     </Button>
                   </Col>
                 </Row>
@@ -95,20 +97,21 @@ const CartScreen = () => {
           <ListGroup>
             <ListGroup.Item>
               <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
+                כמות כוללת ({cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                ) מוצרים
               </h2>
-              $
+              ₪
               {cartItems
                 .reduce((acc, item) => acc + item.price * item.qty, 0)
                 .toFixed(2)}
             </ListGroup.Item>
             <Button
-              type='button'
-              className='btn'
+              type="button"
+              className="btn"
               disabled={cartItems.length === 0}
-              onClick={checkoutHandler}>
-              Proceed To Checkout
+              onClick={checkoutHandler}
+            >
+              המשך לקופה
             </Button>
           </ListGroup>
         </Card>

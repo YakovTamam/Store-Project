@@ -78,7 +78,7 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group className="mb-2" controlId="confirmPassword">
-          <Form.Label>אישור סיסמה</Form.Label>
+          <Form.Label>אימות סיסמה</Form.Label>
           <Form.Control
             type="password"
             placeholder="הזן שוב את הסיסמה"
