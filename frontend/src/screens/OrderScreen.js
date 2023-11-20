@@ -30,21 +30,21 @@ const OrderScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const orderDetails = useSelector(state => state.orderDetails);
+  const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
 
-  const orderPay = useSelector(state => state.orderPay);
+  const orderPay = useSelector((state) => state.orderPay);
   const { loading: loadingPay, success: successPay } = orderPay;
 
-  const orderDeliver = useSelector(state => state.orderPay);
+  const orderDeliver = useSelector((state) => state.orderPay);
   const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
 
-  const userLogin = useSelector(state => state.userLogin);
+  const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   if (!loading) {
     // Calculate Prices
-    const addDecimal = num => {
+    const addDecimal = (num) => {
       return (Math.round(num * 100) / 100).toFixed(2);
     };
 
@@ -85,7 +85,7 @@ const OrderScreen = () => {
     }
   }, [dispatch, id, order, successPay, successDeliver, navigate, userInfo]);
 
-  const successPaymentHandler = paymentResult => {
+  const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(id, paymentResult));
   };
 
@@ -96,53 +96,51 @@ const OrderScreen = () => {
   return loading ? (
     <Loader />
   ) : error ? (
-    <Message variant='danger'>{error}</Message>
+    <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1 style={{ fontSize: "20px" }}>הזמנה: {order._id}</h1>
       <Row>
         <Col md={8}>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>משלוח</h2>
               <p>
-                <strong>Name:</strong> {order.user.name}
+                <strong>שם:</strong> {order.user.name}
               </p>
               <p>
-                <strong>Email: </strong>
+                <strong>דוא"ל: </strong>
                 <a href={"mailto:" + order.user.email}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Assress: </strong>
+                <strong>כתובת: </strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
                 {order.shippingAddress.country},{" "}
                 {order.shippingAddress.postalCode}.
               </p>
               {order.isDelivered ? (
-                <Message variant='success'>
-                  Delivered on {order.deliveredAt}
-                </Message>
+                <Message variant="success">נשלח ב {order.deliveredAt}</Message>
               ) : (
-                <Message variant='danger'>Not Delivered!</Message>
+                <Message variant="danger">לא נשלח</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Payment Method: </h2>
+              <h2>תשלום: </h2>
               <p>
-                <strong>Method: </strong>
+                <strong>דרך: </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
+                <Message variant="success">שולם ב {order.paidAt}</Message>
               ) : (
-                <Message variant='danger'>Not Paid!</Message>
+                <Message variant="danger">לא שולם</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>מוצרים בהזמנה</h2>
               {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
+                <Message>ההזמנה ריקה</Message>
               ) : (
                 <ListGroup>
                   {order.orderItems.map((item, index) => (
@@ -155,10 +153,10 @@ const OrderScreen = () => {
                           <h4>{item.name}</h4>
                           <p>{item.description}</p>
                           <p>
-                            <strong>Price: {item.price}</strong>
+                            <strong>מחיר: {item.price}</strong>
                           </p>
                           <p>
-                            <strong>Quantity: {item.qty}</strong>
+                            <strong>כמות: {item.qty}</strong>
                           </p>
                         </Col>
                       </Row>
@@ -171,31 +169,31 @@ const OrderScreen = () => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant='flush'>
-              <h2>Order Summary</h2>
+            <ListGroup variant="flush">
+              <h2>סיכום הזמנה</h2>
             </ListGroup>
             <ListGroup.Item>
               <Row>
-                <Col>Items</Col>
-                <Col>${order.itemsPrice}</Col>
+                <Col>מוצרים</Col>
+                <Col>₪{order.itemsPrice}</Col>
               </Row>
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>
-                <Col>Shipping</Col>
-                <Col>${order.shippingPrice}</Col>
+                <Col>משלוח</Col>
+                <Col>₪{order.shippingPrice}</Col>
               </Row>
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>
-                <Col>Tax</Col>
-                <Col>${order.taxPrice}</Col>
+                <Col>מס</Col>
+                <Col>₪{order.taxPrice}</Col>
               </Row>
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>
-                <Col>Total</Col>
-                <Col>${order.totalPrice}</Col>
+                <Col>סה"כ</Col>
+                <Col>₪{order.totalPrice}</Col>
               </Row>
             </ListGroup.Item>
             {!order.isPaid && (
@@ -219,10 +217,11 @@ const OrderScreen = () => {
               !order.isDelivered && (
                 <ListGroup.Item>
                   <Button
-                    type='button'
-                    className='btn btn-block'
-                    onClick={deliverHandler}>
-                    Mark As Delivered!
+                    type="button"
+                    className="btn btn-block"
+                    onClick={deliverHandler}
+                  >
+                    סמן כנישלח
                   </Button>
                 </ListGroup.Item>
               )}

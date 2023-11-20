@@ -121,10 +121,10 @@ const ProfileScreen = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Date</th>
-                <th>Total</th>
-                <th>Paid</th>
-                <th>Deliverd</th>
+                <th>תאריך</th>
+                <th>סה"כ</th>
+                <th>תשלום</th>
+                <th>משלוח</th>
                 <th></th>
               </tr>
             </thead>
