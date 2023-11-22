@@ -2,9 +2,9 @@ import React from "react";
 import WazeLogo from "../uploads/waze.png";
 
 export default function Waze(props) {
-  const location =
-    "https://waze.com/ul?ll=32.3312058,34.8598353&navigate=yes" &&
-    props.location;
+  const location = props.location
+    ? props.location
+    : "https://waze.com/ul?ll=32.3312058,34.8598353&navigate=yes";
   return (
     <button
       title="ניווט ליעד"
