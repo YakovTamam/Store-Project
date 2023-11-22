@@ -12,3 +12,8 @@ body {
   letter-spacing: 0;
   font-weight: bold;
 }
+
+button {
+  border: none;
+  background-color: transparent;
+}

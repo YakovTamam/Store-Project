@@ -40,6 +40,7 @@
   border: none;
   color: var(--blue);
   font-weight: bold;
+  font-size: 20px;
 }
 
 .product-addtocart {

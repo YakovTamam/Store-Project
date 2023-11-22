@@ -4,7 +4,7 @@ const img =
   "	https://www.jacobi.co.il/wp-content/uploads/2022/07/31421-2.png.webp";
 
 export default function NewProduct(props) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <button className="product-card">
@@ -21,7 +21,7 @@ export default function NewProduct(props) {
         {quantity}
         <button
           className="product-button"
-          onClick={() => setQuantity(quantity == 0 ? 0 : quantity - 1)}
+          onClick={() => setQuantity(quantity == 1 ? 1 : quantity - 1)}
         >
           -
         </button>

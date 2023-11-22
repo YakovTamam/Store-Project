@@ -1,6 +1,11 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
@@ -23,13 +28,25 @@ import AboveHeader from "./components/AboveHeader";
 import UnderFooter from "./components/UnderFooter";
 import Waze from "./components/Waze";
 import WA from "./components/WA";
+import Social from "./sections/Social";
+
+function HeaderWithLocation({ excludeRoutes }) {
+  const location = useLocation();
+  const shouldShowHeader = !excludeRoutes.some((route) =>
+    location.pathname.includes(route)
+  );
+
+  return <>{shouldShowHeader && <Header />}</>;
+}
 
 function App() {
+  const excludeHeaderRoutes = ["/cart"];
+
   return (
     <div className="App">
       <Router>
         <AboveHeader />
-        <Header />
+        <HeaderWithLocation excludeRoutes={excludeHeaderRoutes} />
         <main>
           <Container>
             <Routes>
@@ -73,7 +90,13 @@ function App() {
           </Container>
         </main>
         <Waze />
-        <WA number="+972532266676" text="Help Me! Professional Clean" />
+        <WA number="+972532266676" text="הודעה מסויימת" />
+        <Social
+          youtube="https://www.youtube.com/"
+          facebook="https://www.facebook.com/"
+          tiktok="https://www.tiktok.com/"
+          instagram="https://www.instagram.com/"
+        />
         <Footer />
         <UnderFooter />
       </Router>
