@@ -20,6 +20,9 @@ import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import AboveHeader from "./components/AboveHeader";
+import UnderFooter from "./components/UnderFooter";
+import Waze from "./components/Waze";
+import WA from "./components/WA";
 
 function App() {
   return (
@@ -69,7 +72,10 @@ function App() {
             </Routes>
           </Container>
         </main>
+        <Waze />
+        <WA number="+972532266676" text="Help Me! Professional Clean" />
         <Footer />
+        <UnderFooter />
       </Router>
     </div>
   );
