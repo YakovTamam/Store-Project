@@ -29,6 +29,7 @@ import UnderFooter from "./components/UnderFooter";
 import Waze from "./components/Waze";
 import WA from "./components/WA";
 import Social from "./sections/Social";
+import ButtomNavigation from "./sections/ButtomNavigation";
 
 function HeaderWithLocation({ excludeRoutes }) {
   const location = useLocation();
@@ -91,6 +92,7 @@ function App() {
         </main>
         <Waze />
         <WA number="+972532266676" text="הודעה מסויימת" />
+        <ButtomNavigation />
         <Social
           youtube="https://www.youtube.com/"
           facebook="https://www.facebook.com/"

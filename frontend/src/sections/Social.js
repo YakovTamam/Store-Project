@@ -44,6 +44,7 @@ const socialButton = {
   backgroundColor: "transparent",
   border: "none",
   cursor: "pointer",
+  color: "black",
 };
 
 const iconStyle = {

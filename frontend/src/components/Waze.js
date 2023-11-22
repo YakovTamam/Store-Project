@@ -1,13 +1,15 @@
 import React from "react";
 import WazeLogo from "../uploads/waze.png";
 
-export default function Waze() {
+export default function Waze(props) {
+  const location =
+    "https://waze.com/ul?ll=32.3312058,34.8598353&navigate=yes" &&
+    props.location;
   return (
     <button
       title="ניווט ליעד"
       onClick={() => {
-        window.location.href =
-          "https://waze.com/ul?ll=32.3312058,34.8598353&navigate=yes";
+        window.location.href = location;
       }}
       style={{
         position: "fixed",
@@ -22,7 +24,7 @@ export default function Waze() {
         backgroundSize: "cover",
         borderRadius: "100px",
         backgroundPosition: "center",
-        boxShadow: "0 0 25px black",
+        boxShadow: "0 0 15px var(--blue)",
       }}
     ></button>
   );

@@ -11,6 +11,9 @@ export default function UnderFooter() {
         alignSelf: "center",
         border: "none",
         fontWeight: "bold",
+        height: "50px",
+        backgroundColor: "black",
+        color: "white",
       }}
     >
       האתר פותח ע"י חברת High-Web
