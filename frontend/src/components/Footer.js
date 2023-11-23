@@ -8,8 +8,10 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className="text-center py-3">
-            <strong style={{ color: "var(--blue)" }}>
-              Copyright &copy; Professional <MdCleanHands /> Clean
+            <strong
+              style={{ textShadow: "var(--blue) 0 0 10px", color: "white" }}
+            >
+              Copyright &copy; Professional Clean
             </strong>
           </Col>
         </Row>

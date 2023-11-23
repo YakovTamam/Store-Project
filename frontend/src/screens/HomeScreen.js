@@ -10,6 +10,7 @@ import NewProduct from "../components/NewProduct.js";
 import NewCarousel from "../components/NewCarousel.js";
 import SolverButton from "../components/SolverButton.js";
 import SolveProblemSections from "../sections/SolveProblemSections.js";
+import HotProductsSections from "../sections/HotProductsSections.js";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -47,17 +48,8 @@ const HomeScreen = () => {
       ) : (
         <>
           {/* TODO: Sections */}
-          <div
-            className="products"
-            style={{
-              display: "flex",
-              justifyContent: "space-around",
-              flexWrap: "wrap",
-            }}
-          >
-            <NewProduct img="https://hulkcleaner.com/cdn/shop/products/anti-rust-1l.webp?v=1677175044&width=360" />
-            <NewProduct img="https://hulkcleaner.com/cdn/shop/products/Anti-Rust-Gel.webp?v=1677755072&width=360" />
-            <NewProduct />
+          <div>
+            <HotProductsSections />
           </div>
 
           <div>

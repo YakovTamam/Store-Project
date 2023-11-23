@@ -38,19 +38,19 @@
 
 .product-button {
   border: none;
-  color: var(--blue);
+  color: orange;
   font-weight: bold;
   font-size: 20px;
 }
 
 .product-addtocart {
-  background-color: var(--blue);
-  color: white;
+  color: orange;
   font-weight: bold;
   border: none;
   border-radius: 15px;
   width: 120px;
   height: 35px;
-  box-shadow: var(--blue) 0 0 10px;
+  box-shadow: orange 0 0 10px;
   margin-bottom: 10px;
+  font-size: 13px;
 }
