@@ -8,6 +8,8 @@ import { listProducts } from "../actions/productAction.js";
 import { Link } from "react-router-dom";
 import NewProduct from "../components/NewProduct.js";
 import NewCarousel from "../components/NewCarousel.js";
+import SolverButton from "../components/SolverButton.js";
+import SolveProblemSections from "../sections/SolveProblemSections.js";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -44,6 +46,7 @@ const HomeScreen = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          {/* TODO: Sections */}
           <div
             className="products"
             style={{
@@ -56,18 +59,10 @@ const HomeScreen = () => {
             <NewProduct img="https://hulkcleaner.com/cdn/shop/products/Anti-Rust-Gel.webp?v=1677755072&width=360" />
             <NewProduct />
           </div>
-          {/* <Row>
-            {products.map((product) => (
-              <Col key={product._id} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))}
-          </Row>
-          <Paginate
-            pages={pages}
-            page={page}
-            keyword={keyword ? keyword : ""}
-          /> */}
+
+          <div>
+            <SolveProblemSections />
+          </div>
         </>
       )}
     </>
