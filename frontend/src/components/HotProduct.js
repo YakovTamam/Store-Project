@@ -6,22 +6,25 @@ export default function HotProduct(props) {
   const left = props.left;
 
   return (
-    <div style={left ? containerRight : containerLeft}>
-      <div style={details}>
-        {/* <img src={imgs} style={left ? imgRight : imgLeft} /> */}
-        <h3 style={title}>Anti-Rust</h3>
-        <span style={description}>
-          מסיר כתמי חלודה מאבן ,גרנית פורצלן וקרמיקה, מפרק את החלודה ללא כל
-          פגיעה בתשתית.
-        </span>
-        <button style={addtocart}>הוסף לעגלה</button>
+    <>
+      <div style={left ? containerRight : containerLeft}>
+        <img src={imgs} style={left ? imgRight : imgLeft} />
+        <div style={left ? details : detailsRight}>
+          <h3 style={left ? title : titleRight}>Anti-Rust</h3>
+          <span style={description}>
+            מסיר כתמי חלודה מאבן ,גרנית פורצלן וקרמיקה, מפרק את החלודה ללא כל
+            פגיעה בתשתית.
+          </span>
+          <button style={left ? addtocart : addtocartright}>הוסף לעגלה</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 const containerRight = {
   display: "flex",
+  flexDirection: "row-reverse",
   height: "200px",
   width: "auto",
   borderTopLeftRadius: "50px",
@@ -46,8 +49,7 @@ const imgRight = {
   height: "150px",
   width: "150px",
   position: "relative",
-  right: "205px",
-  bottom: "50px",
+  bottom: "60px",
 };
 
 const imgLeft = {
@@ -63,6 +65,13 @@ const details = {
   justifyContent: "space-evenly",
 };
 
+const detailsRight = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-evenly",
+  alignItems: "flex-end",
+};
+
 const addtocart = {
   width: "100px",
   fontWeight: "bold",
@@ -73,13 +82,29 @@ const addtocart = {
   boxShadow: "0px 0px 5px rgba(0, 128, 0, 0.44)",
 };
 
+const addtocartright = {
+  width: "100px",
+  fontWeight: "bold",
+  fontSize: "12px",
+  borderTopRightRadius: "50px",
+  borderBottomRightRadius: "50px",
+  height: "30px",
+  boxShadow: "0px 0px 5px rgba(0, 128, 0, 0.44)",
+};
+
 const title = {
   marginRight: "15px",
+  padding: "0",
+};
+
+const titleRight = {
+  marginLeft: "15px",
+  padding: "0",
 };
 
 const description = {
   marginRight: "15px",
   marginLeft: "15px",
-  fontSize: "14px",
-  fontWeight: "500",
+  fontSize: "10px",
+  fontWeight: "bold",
 };
