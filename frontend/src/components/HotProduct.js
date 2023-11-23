@@ -1,4 +1,5 @@
 import React from "react";
+import "./hotproduct.css";
 
 const imgSrc =
   "https://hulkcleaner.com/cdn/shop/products/anti-rust-1l.webp?v=1677175044";
@@ -53,7 +54,7 @@ export default function HotProduct({ left }) {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="enter-right" style={containerStyle}>
       <img src={imgSrc} style={imgStyle} alt="Product" />
       <div style={detailsStyle}>
         <h3 style={titleStyle}>Anti-Rust</h3>

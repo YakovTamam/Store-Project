@@ -1,0 +1,16 @@
+@keyframes enter-right {
+  0% {
+    left: 350px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.enter-right {
+  animation: enter-right 3s; /* Adjust the duration and other properties as needed */
+  position: relative; /* Ensure the 'left' and 'top' properties work */
+  /* Other styles for your component */
+}
