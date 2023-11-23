@@ -7,9 +7,9 @@ export default function SolverButton(props) {
 const button = {
   fontWeight: "bold",
   borderRadius: "20px",
-  minWidth: "80px",
-  marginLeft: "18px",
-  boxShadow: "orange 0 0 10px",
+  minWidth: "70px",
+  marginLeft: "15px",
+  boxShadow: "orange 0 0 7px",
   fontSize: "10px",
   height: "35px",
 };
