@@ -47,6 +47,7 @@ export default function HotProduct({ left }) {
 
   const titleStyle = {
     padding: "0",
+    fontWeight: "700",
     marginRight: left ? "15px" : "0",
     marginLeft: left ? "0" : "15px",
   };
@@ -60,7 +61,7 @@ export default function HotProduct({ left }) {
           style={{
             marginRight: "15px",
             marginLeft: "15px",
-            fontSize: "10px",
+            fontSize: "14px",
             fontWeight: "bold",
           }}
         >

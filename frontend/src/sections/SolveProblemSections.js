@@ -42,5 +42,5 @@ const buttonContainer = {
   width: "100%",
   display: "flex",
   padding: "10px",
-  overflowX: "hidden",
+  overflowX: "scroll",
 };

@@ -12,4 +12,5 @@ const button = {
   boxShadow: "orange 0 0 7px",
   fontSize: "10px",
   height: "35px",
+  color: "black",
 };
