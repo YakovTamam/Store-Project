@@ -11,6 +11,7 @@ import NewCarousel from "../components/NewCarousel.js";
 import SolverButton from "../components/SolverButton.js";
 import SolveProblemSections from "../sections/SolveProblemSections.js";
 import HotProductsSections from "../sections/HotProductsSections.js";
+import AdventageSection from "../sections/AdventageSection.js";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,9 @@ const HomeScreen = () => {
 
           <div>
             <SolveProblemSections />
+          </div>
+          <div>
+            <AdventageSection />
           </div>
         </>
       )}
