@@ -36,6 +36,8 @@ const container = {
   width: "100%",
   display: "flex",
   flexDirection: "column",
+  marginTop: "50px",
+  backgroundColor: "#d9d9d951",
 };
 
 const buttonContainer = {
